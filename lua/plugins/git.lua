@@ -22,57 +22,65 @@ return {
       { "<leader>gI", false },
       { "<leader>gp", false },
       { "<leader>gP", false },
+      { "<leader>yd", false },
+      { "<leader>yD", false },
+      { "<leader>ys", false },
+      { "<leader>yS", false },
+      { "<leader>yi", false },
+      { "<leader>yI", false },
+      { "<leader>yp", false },
+      { "<leader>yP", false },
       {
-        "<leader>yd",
+        "<leader>hd",
         function()
           Snacks.picker.git_diff()
         end,
         desc = "Git Diff (Hunks)",
       },
       {
-        "<leader>yD",
+        "<leader>hD",
         function()
           Snacks.picker.git_diff({ cwd = LazyVim.root.git() })
         end,
         desc = "Git Diff (Root Dir)",
       },
       {
-        "<leader>ys",
+        "<leader>hs",
         function()
           Snacks.picker.git_status()
         end,
         desc = "Git Status",
       },
       {
-        "<leader>yS",
+        "<leader>hS",
         function()
           Snacks.picker.git_stash()
         end,
         desc = "Git Stash",
       },
       {
-        "<leader>yi",
+        "<leader>hi",
         function()
           Snacks.picker.git_log_line()
         end,
         desc = "Git Log Line",
       },
       {
-        "<leader>yI",
+        "<leader>hI",
         function()
           Snacks.picker.git_log({ cwd = LazyVim.root.git(), current = false })
         end,
         desc = "Git Log",
       },
       {
-        "<leader>yp",
+        "<leader>hp",
         function()
           Snacks.picker.git_log_file()
         end,
         desc = "Git Log File",
       },
       {
-        "<leader>yP",
+        "<leader>hP",
         function()
           Snacks.picker.git_log({ cwd = LazyVim.root.git() })
         end,

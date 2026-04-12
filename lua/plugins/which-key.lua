@@ -14,10 +14,21 @@ return {
     "folke/which-key.nvim",
     opts = function(_, opts)
       opts.spec = vim.tbl_filter(function(item)
-        return not (type(item) == "table" and vim.tbl_contains({ "<leader>c", "<leader>d", "<leader>f", "<leader>g" }, item[1]))
+        return not (type(item) == "table" and vim.tbl_contains({ "<leader>c", "<leader>d", "<leader>f", "<leader>g", "<leader>q" }, item[1]))
       end, opts.spec or {})
       return opts
     end,
+  },
+
+  -- Disable LazyVim's <leader>q* session keymaps
+  {
+    "folke/persistence.nvim",
+    keys = {
+      { "<leader>qs", false },
+      { "<leader>qS", false },
+      { "<leader>ql", false },
+      { "<leader>qd", false },
+    },
   },
 
   -- Remove <leader>c* keys from LSP, and add custom LSP keymaps
