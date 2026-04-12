@@ -45,9 +45,10 @@ vim.keymap.set("n", "<leader>r", close_current_buffer, { desc = "Delete buffer a
 vim.keymap.set("n", "<leader>a", "ggVG", { desc = "Select all", noremap = true, silent = true })
 Snacks.toggle.zoom():map("<leader>z")
 
+-- <leader>o: option toggles
+Snacks.toggle.inlay_hints():map("<leader>oi")
 vim.keymap.set("n", "<leader>ol", "<cmd>set wrap!<cr>", { desc = "Toggle wrap", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>oc", "<cmd>setlocal spell! spelllang=en_us<cr>", { desc = "Toggle spell check", noremap = true, silent = true })
-
 vim.keymap.set("n", "n", "nzzzv", { noremap = true, silent = true })
 vim.keymap.set("n", "N", "Nzzzv", { noremap = true, silent = true })
 vim.keymap.set("n", "x", '"_x', { noremap = true, silent = true })
