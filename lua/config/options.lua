@@ -23,5 +23,8 @@ end
 -- Use unnamed register (") only, not system clipboard
 vim.opt.clipboard = ""
 
+-- Hide Neovim's inline search count; we show it in lualine instead.
+vim.opt.shortmess:append("S")
+
 -- Disable mouse completely
 vim.opt.mouse = ""

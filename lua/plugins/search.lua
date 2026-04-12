@@ -2,10 +2,21 @@ return {
   {
     "folke/snacks.nvim",
     keys = {
+      { "<leader>f", function() Snacks.picker.git_files() end, desc = "Find Files (git-files)" },
+      { "<leader>F", function() Snacks.picker.files({ root = false }) end, desc = "Find Files (cwd)" },
+      { "<leader>t", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
+
+      { "<leader>fb", false },
+      { "<leader>fB", false },
+      { "<leader>fc", false },
       { "<leader>ff", false },
+      { "<leader>fF", false },
       { "<leader>fg", false },
-      { "<leader>ff", function() Snacks.picker.git_files() end, desc = "Find Files (git-files)" },
-      { "<leader>ft", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
+      { "<leader>fn", false },
+      { "<leader>fp", false },
+      { "<leader>fr", false },
+      { "<leader>fR", false },
+      { "<leader>fT", false },
     },
   },
   {
