@@ -40,7 +40,7 @@ return {
   {
     "stevearc/conform.nvim",
     keys = {
-      { "<leader>cF", false, mode = { "n", "v" } },
+      { "<leader>cF", false, mode = { "n", "x" } },
     },
   },
 

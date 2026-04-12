@@ -8,4 +8,4 @@ vim.keymap.del("n", "<leader>cd")
 vim.keymap.del({ "i", "n", "s" }, "<esc>")
 
 -- Visual mode: copy selection to the active clipboard provider, then move cursor to end of selection
-vim.keymap.set("v", "<leader>c", '"+y`]', { desc = "Copy to clipboard", noremap = true, silent = true })
+vim.keymap.set("x", "<leader>c", '"+y`]', { desc = "Copy to clipboard", noremap = true, silent = true, nowait = true })
