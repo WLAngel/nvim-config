@@ -6,5 +6,5 @@
 vim.keymap.del({ "n", "x" }, "<leader>cf")
 vim.keymap.del("n", "<leader>cd")
 
--- Visual mode: copy selection to system clipboard, then move cursor to end of selection
+-- Visual mode: copy selection to the active clipboard provider, then move cursor to end of selection
 vim.keymap.set("v", "<leader>c", '"+y`]', { desc = "Copy to clipboard", noremap = true, silent = true })
