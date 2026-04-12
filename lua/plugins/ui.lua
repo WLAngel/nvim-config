@@ -35,4 +35,53 @@ return {
       table.insert(opts.sections.lualine_z, 1, search_count)
     end,
   },
+  {
+    "petertriho/nvim-scrollbar",
+    event = "VeryLazy",
+    opts = {
+      hide_if_all_visible = true,
+      show_in_active_only = true,
+      handle = {
+        text = " ",
+        blend = 30,
+        hide_if_all_visible = true,
+      },
+      handlers = {
+        cursor = true,
+        diagnostic = true,
+        gitsigns = true,
+        handle = true,
+        search = false,
+      },
+      excluded_filetypes = {
+        "blink-cmp-menu",
+        "cmp_docs",
+        "cmp_menu",
+        "DressingInput",
+        "lazy",
+        "mason",
+        "noice",
+        "prompt",
+        "snacks_dashboard",
+        "TelescopePrompt",
+      },
+    },
+    config = function(_, opts)
+      require("scrollbar").setup(opts)
+      require("scrollbar.handlers.gitsigns").setup()
+    end,
+  },
+  {
+    "folke/noice.nvim",
+    keys = {
+      { "<c-f>", false, mode = { "i", "n", "s" } },
+      { "<c-b>", false, mode = { "i", "n", "s" } },
+    },
+  },
+  {
+    "folke/snacks.nvim",
+    opts = {
+      scroll = { enabled = false },
+    },
+  },
 }
