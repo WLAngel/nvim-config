@@ -14,7 +14,7 @@ return {
     "folke/which-key.nvim",
     opts = function(_, opts)
       opts.spec = vim.tbl_filter(function(item)
-        return not (type(item) == "table" and (item[1] == "<leader>c" or item[1] == "<leader>f"))
+        return not (type(item) == "table" and vim.tbl_contains({ "<leader>c", "<leader>d", "<leader>f", "<leader>g" }, item[1]))
       end, opts.spec or {})
       return opts
     end,
