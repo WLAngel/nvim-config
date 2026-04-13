@@ -61,6 +61,60 @@ return {
     },
   },
 
+  -- Move Sidekick CLI keymaps from <leader>a* to <leader>k* (<leader>a = select all)
+  {
+    "folke/sidekick.nvim",
+    keys = {
+      { "<leader>a",  false, mode = { "n", "v" } },
+      { "<leader>aa", false },
+      { "<leader>as", false },
+      { "<leader>ad", false },
+      { "<leader>at", false, mode = { "x", "n" } },
+      { "<leader>af", false },
+      { "<leader>av", false, mode = "x" },
+      { "<leader>ap", false, mode = { "n", "x" } },
+      { "<leader>k",  "", desc = "+sidekick", mode = { "n", "v" } },
+      {
+        "<leader>ka",
+        function() require("sidekick.cli").toggle() end,
+        desc = "Sidekick Toggle CLI",
+      },
+      {
+        "<leader>ks",
+        function() require("sidekick.cli").select() end,
+        desc = "Select CLI",
+      },
+      {
+        "<leader>kd",
+        function() require("sidekick.cli").close() end,
+        desc = "Detach a CLI Session",
+      },
+      {
+        "<leader>kt",
+        function() require("sidekick.cli").send({ msg = "{this}" }) end,
+        mode = { "x", "n" },
+        desc = "Send This",
+      },
+      {
+        "<leader>kf",
+        function() require("sidekick.cli").send({ msg = "{file}" }) end,
+        desc = "Send File",
+      },
+      {
+        "<leader>kv",
+        function() require("sidekick.cli").send({ msg = "{selection}" }) end,
+        mode = "x",
+        desc = "Send Visual Selection",
+      },
+      {
+        "<leader>kp",
+        function() require("sidekick.cli").prompt() end,
+        mode = { "n", "x" },
+        desc = "Sidekick Select Prompt",
+      },
+    },
+  },
+
   -- Move CopilotChat keymaps from <leader>a* to <leader>q* (<leader>a = select all)
   {
     "CopilotC-Nvim/CopilotChat.nvim",
