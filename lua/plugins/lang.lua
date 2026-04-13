@@ -3,13 +3,11 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       opts.ensure_installed = opts.ensure_installed or {}
+      -- Go / TypeScript / PHP language behavior is configured via LazyVim extras in config/lazy.lua.
+      -- Keep this file focused on shared parsers we want preinstalled globally.
       local add = {
         "bash",
         "css",
-        "go",
-        "gomod",
-        "gosum",
-        "gowork",
         "html",
         "javascript",
         "jsdoc",
@@ -18,7 +16,6 @@ return {
         "luadoc",
         "markdown",
         "markdown_inline",
-        "php",
         "query",
         "regex",
         "toml",
@@ -40,15 +37,9 @@ return {
     "mason-org/mason.nvim",
     opts = function(_, opts)
       opts.ensure_installed = opts.ensure_installed or {}
+      -- Leave language-specific tools to their LazyVim extras and keep only generic tools here.
       local add = {
-        "gofumpt",
-        "goimports",
-        "golangci-lint",
-        "gopls",
         "lua-language-server",
-        "php-cs-fixer",
-        "phpactor",
-        "phpcs",
         "shfmt",
         "stylua",
         "vtsls",
