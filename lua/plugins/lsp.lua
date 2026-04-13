@@ -65,6 +65,7 @@ return {
   {
     "folke/sidekick.nvim",
     keys = {
+      { "<c-.>",       false, mode = { "n", "t", "i", "x" } },
       { "<leader>a",  false, mode = { "n", "v" } },
       { "<leader>aa", false },
       { "<leader>as", false },
@@ -74,6 +75,12 @@ return {
       { "<leader>av", false, mode = "x" },
       { "<leader>ap", false, mode = { "n", "x" } },
       { "<leader>k",  "", desc = "+sidekick", mode = { "n", "v" } },
+      {
+        "<leader>kk",
+        function() require("sidekick.cli").focus() end,
+        desc = "Sidekick Focus CLI",
+        mode = { "n", "t", "i", "x" },
+      },
       {
         "<leader>ka",
         function() require("sidekick.cli").toggle() end,
