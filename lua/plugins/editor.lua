@@ -12,15 +12,6 @@ return {
   },
 
   {
-    "github/copilot.vim",
-    event = "InsertEnter",
-    cmd = "Copilot",
-    init = function()
-      vim.g.copilot_no_tab_map = true
-    end,
-  },
-
-  {
     "kylechui/nvim-surround",
     version = "*",
     event = "VeryLazy",

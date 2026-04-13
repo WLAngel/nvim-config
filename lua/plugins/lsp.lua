@@ -60,4 +60,45 @@ return {
       { "<leader>qd", false },
     },
   },
+
+  -- Move CopilotChat keymaps from <leader>a* to <leader>q* (<leader>a = select all)
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    keys = {
+      { "<leader>a",  false, mode = { "n", "x" } },
+      { "<leader>aa", false, mode = { "n", "x" } },
+      { "<leader>ax", false, mode = { "n", "x" } },
+      { "<leader>aq", false, mode = { "n", "x" } },
+      { "<leader>ap", false, mode = { "n", "x" } },
+      { "<leader>q",  "", desc = "+ai", mode = { "n", "x" } },
+      {
+        "<leader>qa",
+        function() require("CopilotChat").toggle() end,
+        desc = "Toggle (CopilotChat)",
+        mode = { "n", "x" },
+      },
+      {
+        "<leader>qx",
+        function() require("CopilotChat").reset() end,
+        desc = "Clear (CopilotChat)",
+        mode = { "n", "x" },
+      },
+      {
+        "<leader>qq",
+        function()
+          vim.ui.input({ prompt = "Quick Chat: " }, function(input)
+            if input ~= "" then require("CopilotChat").ask(input) end
+          end)
+        end,
+        desc = "Quick Chat (CopilotChat)",
+        mode = { "n", "x" },
+      },
+      {
+        "<leader>qp",
+        function() require("CopilotChat").select_prompt() end,
+        desc = "Prompt Actions (CopilotChat)",
+        mode = { "n", "x" },
+      },
+    },
+  },
 }
