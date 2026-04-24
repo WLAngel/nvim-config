@@ -33,3 +33,8 @@ vim.opt.shortmess:append("S")
 
 -- Disable mouse completely
 vim.opt.mouse = ""
+
+vim.opt.listchars = {
+  tab = "▷⋅",
+  trail = "·",
+}
