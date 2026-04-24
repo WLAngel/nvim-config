@@ -2,7 +2,18 @@ return {
   {
     "folke/snacks.nvim",
     keys = {
-      { "<leader>f", function() Snacks.picker.git_files() end, desc = "Find Files (git-files)", nowait = true },
+      {
+        "<leader>f",
+        function()
+          if vim.fs.root(0, ".git") then
+            Snacks.picker.git_files()
+          else
+            LazyVim.pick("files")()
+          end
+        end,
+        desc = "Find Files (git-files)",
+        nowait = true,
+      },
       { "<leader>F", function() Snacks.picker.files({ root = false }) end, desc = "Find Files (cwd)", nowait = true },
       { "<leader>t", LazyVim.pick("files"), desc = "Find Files (Root Dir)", nowait = true },
 
