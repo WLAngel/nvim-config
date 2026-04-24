@@ -25,6 +25,9 @@ if is_ssh then
   }
 end
 
+-- Disable auto-format on save globally (use <leader>i to format manually)
+vim.g.autoformat = false
+
 -- Use unnamed register (") only, not system clipboard
 vim.opt.clipboard = ""
 

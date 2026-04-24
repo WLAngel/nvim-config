@@ -97,3 +97,7 @@ end, { desc = "Git Browse (copy)", noremap = true, silent = true })
 
 -- Visual mode: copy selection to the active clipboard provider, then move cursor to end of selection
 vim.keymap.set("x", "<leader>c", '"+y`]', { desc = "Copy to clipboard", noremap = true, silent = true, nowait = true })
+
+vim.keymap.set({ "n", "x" }, "<leader>i", function()
+  LazyVim.format({ force = true })
+end, { desc = "Format", noremap = true, silent = true })

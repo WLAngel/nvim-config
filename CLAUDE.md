@@ -65,6 +65,7 @@ Go, TypeScript, and PHP are handled entirely by LazyVim extras declared in `lua/
 | `<leader>r` | n | Delete buffer and return to previous (`bp \| bd#`) |
 | `<leader>a` | n | Select all (`ggVG`) |
 | `<leader>d` | n | Toggle diff mode |
+| `<leader>i` | n/x | Format (normal: whole file, visual: selection) |
 | `<leader>z` | n | Toggle zoom |
 | `<leader>oi` | n | Toggle inlay hints |
 | `<leader>ol` | n | Toggle wrap |
