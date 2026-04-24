@@ -32,24 +32,41 @@ return {
     dependencies = { "junegunn/fzf" },
     cmd = { "Files", "GFiles", "Buffers", "Rg", "RG" },
     config = function()
-      vim.cmd([[
-        command! -bang -nargs=* Rg
-          \ call fzf#vim#grep(
-          \ "rg --column --line-number --no-heading --color=always --smart-case --hidden --glob=!.git/ -- ".fzf#shellescape(<q-args>),
-          \ fzf#vim#with_preview(),
-          \ <bang>0
-          \ )
-      ]])
+      -- fzf records the launching window as ppos and restores focus to it on close.
+      -- When launched from the snacks explorer, focus returns to the explorer instead
+      -- of the opened file. Switch to a regular window first so fzf records it as ppos.
+      local function ensure_editor_win()
+        if vim.bo.filetype ~= "snacks_picker_list" then
+          return
+        end
+        for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+          local buf = vim.api.nvim_win_get_buf(win)
+          if vim.bo[buf].filetype ~= "snacks_picker_list" and vim.api.nvim_win_get_config(win).relative == "" then
+            vim.api.nvim_set_current_win(win)
+            return
+          end
+        end
+      end
 
-      vim.cmd([[
-        command! -bang -nargs=* RG
-          \ call fzf#vim#grep2(
-          \ "rg --column --line-number --no-heading --color=always --smart-case --hidden --glob=!.git/ -- ",
-          \ <q-args>,
-          \ fzf#vim#with_preview(),
-          \ <bang>0
-          \ )
-      ]])
+      vim.api.nvim_create_user_command("Rg", function(opts)
+        ensure_editor_win()
+        vim.fn["fzf#vim#grep"](
+          "rg --column --line-number --no-heading --color=always --smart-case --hidden --glob=!.git/ -- "
+            .. vim.fn["fzf#shellescape"](opts.args),
+          vim.fn["fzf#vim#with_preview"](),
+          opts.bang and 1 or 0
+        )
+      end, { bang = true, nargs = "*" })
+
+      vim.api.nvim_create_user_command("RG", function(opts)
+        ensure_editor_win()
+        vim.fn["fzf#vim#grep2"](
+          "rg --column --line-number --no-heading --color=always --smart-case --hidden --glob=!.git/ -- ",
+          opts.args,
+          vim.fn["fzf#vim#with_preview"](),
+          opts.bang and 1 or 0
+        )
+      end, { bang = true, nargs = "*" })
     end,
   },
 }

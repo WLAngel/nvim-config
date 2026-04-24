@@ -84,6 +84,19 @@ return {
       dashboard = { enabled = false },
       scroll = { enabled = false },
       indent = { animate = { enabled = false } },
+      picker = {
+        sources = {
+          explorer = {
+            win = {
+              list = {
+                keys = {
+                  ["<Esc>"] = false,
+                },
+              },
+            },
+          },
+        },
+      },
     },
   },
 }
