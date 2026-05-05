@@ -22,6 +22,7 @@ return {
       { "<leader>cA", false },
       { "<leader>co", false },
       { "gs", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>", desc = "Go to definition (vertical split)" },
+      { "gi", vim.lsp.buf.implementation, desc = "Go to Implementation" },
     },
   },
 
