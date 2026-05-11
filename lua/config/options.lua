@@ -2,12 +2,13 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
--- SSH env vars are often not forwarded into existing tmux sessions, so also
--- check $TMUX to catch the SSH+tmux case.
+-- tmux.conf must set:
+--   set -g set-clipboard on
+--   set-option -g update-environment "SSH_CLIENT SSH_CONNECTION SSH_TTY"
+-- so that SSH vars survive inside existing tmux sessions.
 local is_ssh = vim.env.SSH_CLIENT ~= nil
   or vim.env.SSH_CONNECTION ~= nil
   or vim.env.SSH_TTY ~= nil
-  or vim.env.TMUX ~= nil
 
 if is_ssh then
   local osc52 = require("vim.ui.clipboard.osc52")
