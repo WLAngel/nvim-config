@@ -62,7 +62,8 @@ Go, TypeScript, and PHP are handled entirely by LazyVim extras declared in `lua/
 | `<leader>c` | x | Copy selection to clipboard |
 | `<leader>v` | n/x | Paste from clipboard |
 | `<leader>w` | n | Delete buffer (`:bd`) |
-| `<leader>r` | n | Delete buffer and return to previous (`bp \| bd#`) |
+| `<leader>R` | n | Delete buffer and return to previous (`bp \| bd#`) |
+| `<leader>r` | n | kulala.nvim REST client group |
 | `<leader>a` | n | Select all (`ggVG`) |
 | `<leader>d` | n | Toggle diff mode |
 | `<leader>i` | n/x | Format (normal: whole file, visual: selection) |

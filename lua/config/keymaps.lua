@@ -44,7 +44,7 @@ end, { desc = "Copy file path to clipboard", noremap = true, silent = true, nowa
 
 vim.keymap.set("n", "<leader>w", "<cmd>bd<cr>", { desc = "Delete Buffer", noremap = true, silent = true, nowait = true })
 vim.keymap.set("n", "<leader>d", toggle_diff_mode, { desc = "Toggle diff mode", noremap = true, silent = true, nowait = true })
-vim.keymap.set("n", "<leader>r", close_current_buffer, { desc = "Delete buffer and return", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>R", close_current_buffer, { desc = "Delete buffer and return", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>a", "ggVG", { desc = "Select all", noremap = true, silent = true })
 Snacks.toggle.zoom():map("<leader>z")
 

@@ -62,7 +62,7 @@ return {
     },
   },
 
-  -- Move refactoring keymaps from <leader>r* to <leader>m* (<leader>r = delete buffer and return)
+  -- Move refactoring keymaps from <leader>r* to <leader>m* (<leader>r = kulala.nvim)
   {
     "ThePrimeagen/refactoring.nvim",
     keys = {
